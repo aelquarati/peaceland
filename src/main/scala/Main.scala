@@ -26,7 +26,7 @@ object Main extends App {
   properties.put("key.serializer", classOf[StringSerializer].getName)
   properties.put("value.serializer", classOf[CustomSerializer[DroneMessage]].getName)
 
- /* val builder = new StreamsBuilder
+  val builder = new StreamsBuilder
   val stream  = builder.stream[String, DroneMessage]("drone-input")(Consumed.`with`(stringSerde, messageSerde))
 
   //stream.to("drone output")(Produced.`with`(stringSerde, messageSerde))
@@ -37,7 +37,7 @@ object Main extends App {
 
   sys.ShutdownHookThread {
     streams.close(10, TimeUnit.SECONDS)
-  } */
+  }
 
   val drone = new Drone("1", 12, 23)
   val citizen = new Citizen("2", 18, "France", 23)
@@ -47,5 +47,5 @@ object Main extends App {
   val producer = new KafkaProducer[String, DroneMessage](properties)
   producer.send(new ProducerRecord[String, DroneMessage]("drone-input", "1", droneMessage))
 
-  //stream.print(Printed.toSysOut)
+  stream.print(Printed.toSysOut)
 }
