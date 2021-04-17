@@ -1,8 +1,8 @@
-[error] sbt.librarymanagement.ResolveException: Error downloading org.apache.kafka:kafka-streams_2.13:2.0.1
+[error] sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json:3.3.0
 [error]   Not found
 [error]   Not found
-[error]   not found: /home/marwane/.ivy2/localorg.apache.kafka/kafka-streams_2.13/2.0.1/ivys/ivy.xml
-[error]   not found: https://repo1.maven.org/maven2/org/apache/kafka/kafka-streams_2.13/2.0.1/kafka-streams_2.13-2.0.1.pom
+[error]   not found: /home/marwane/.ivy2/localnet.liftweb/lift-json/3.3.0/ivys/ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/net/liftweb/lift-json/3.3.0/lift-json-3.3.0.pom
 [error] 	at lmcoursier.CoursierDependencyResolution.unresolvedWarningOrThrow(CoursierDependencyResolution.scala:258)
 [error] 	at lmcoursier.CoursierDependencyResolution.$anonfun$update$38(CoursierDependencyResolution.scala:227)
 [error] 	at scala.util.Either$LeftProjection.map(Either.scala:573)
@@ -33,8 +33,8 @@
 [error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 [error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 [error] 	at java.lang.Thread.run(Thread.java:748)
-[error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading org.apache.kafka:kafka-streams_2.13:2.0.1
+[error] (ssExtractDependencies) sbt.librarymanagement.ResolveException: Error downloading net.liftweb:lift-json:3.3.0
 [error]   Not found
 [error]   Not found
-[error]   not found: /home/marwane/.ivy2/localorg.apache.kafka/kafka-streams_2.13/2.0.1/ivys/ivy.xml
-[error]   not found: https://repo1.maven.org/maven2/org/apache/kafka/kafka-streams_2.13/2.0.1/kafka-streams_2.13-2.0.1.pom
+[error]   not found: /home/marwane/.ivy2/localnet.liftweb/lift-json/3.3.0/ivys/ivy.xml
+[error]   not found: https://repo1.maven.org/maven2/net/liftweb/lift-json/3.3.0/lift-json-3.3.0.pom

@@ -1,4 +1,4 @@
-import SerializationUtils.{CustomDeserializer, CustomSerializer}
+//import SerializationUtils.{CustomDeserializer, CustomSerializer}
 import org.apache.kafka.common.serialization.{Serdes, StringSerializer}
 import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
 import org.apache.kafka.streams.kstream.Printed
@@ -13,24 +13,21 @@ object Stream extends App {
   import org.apache.kafka.streams.scala.serialization.Serdes._
   import org.apache.kafka.streams.scala.ImplicitConversions._
 
-  //serde is used to pair serializer and desializer of an object. needed to build the stream with key/value: string/dronemessage
-  implicit val stringSerde = Serdes.String
-  implicit val messageSerde = Serdes.serdeFrom(new CustomSerializer[DroneMessage], new CustomDeserializer[DroneMessage])
 
   val properties = new Properties()
   properties.setProperty(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
   properties.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "messages")
   properties.put("key.serializer", classOf[StringSerializer].getName)
-  properties.put("value.serializer", classOf[CustomSerializer[DroneMessage]].getName)
+  properties.put("value.serializer", classOf[StringSerializer].getName)
 
   val builder = new StreamsBuilder
 
   //node that consume records from kafka and store into a kstream
-  val stream  = builder.stream[String, DroneMessage]("drone-input")(Consumed.`with`(stringSerde, messageSerde))
+  val stream  = builder.stream[String, String]("drone-input")
 
   //filter messages and send them back to kafka in alerts topic
-  stream.filter((key, message) => shouldSendAlert(message.words.split(" ").length-1,message.words))
-        .to("alerts")(Produced.`with`(stringSerde, messageSerde))
+  stream.filter((key, message) => shouldSendAlert(message.split(" ").length-1, message))
+       .to("alerts")
 
   stream.print(Printed.toSysOut)
 
