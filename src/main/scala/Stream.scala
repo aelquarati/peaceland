@@ -1,17 +1,14 @@
 import Utils.{CustomDeserializer, CustomSerializer}
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
-import org.apache.kafka.streams.scala._
-import org.apache.kafka.streams.scala.kstream._
+import org.apache.kafka.common.serialization.{Serdes, StringSerializer}
+import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
+import org.apache.kafka.streams.kstream.Printed
+import org.apache.kafka.streams.scala.StreamsBuilder
+import org.apache.kafka.streams.scala.kstream.{Consumed, Produced}
 
 import java.util.Properties
-import org.apache.kafka.common.serialization.{Serdes, StringSerializer}
-import org.apache.kafka.streams.kstream.Printed
-import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
-
 import java.util.concurrent.TimeUnit
 
-
-object Main extends App {
+object Stream extends App {
 
   import org.apache.kafka.streams.scala.serialization.Serdes._
   import org.apache.kafka.streams.scala.ImplicitConversions._
@@ -29,19 +26,15 @@ object Main extends App {
   val builder = new StreamsBuilder
   val stream  = builder.stream[String, DroneMessage]("drone-input")(Consumed.`with`(stringSerde, messageSerde))
 
-  //stream.to("drone output")(Produced.`with`(stringSerde, messageSerde))
+  stream.to("alerts")(Produced.`with`(stringSerde, messageSerde))
 
   val streams = new KafkaStreams(builder.build, properties)
 
   streams.start
+  stream.print(Printed.toSysOut)
 
   sys.ShutdownHookThread {
     streams.close(10, TimeUnit.SECONDS)
   }
-
-
-  stream.print(Printed.toSysOut)
-
-  MessageGenerator.sendAllDronesMessages(50)
 
 }

@@ -1,4 +1,4 @@
-import Main.properties
+import .properties
 import Utils.{CustomDeserializer, CustomSerializer}
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.kafka.common.serialization.{Serdes, StringSerializer}
