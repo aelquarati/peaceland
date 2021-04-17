@@ -39,14 +39,9 @@ object Main extends App {
     streams.close(10, TimeUnit.SECONDS)
   }
 
-  val drone = new Drone("1", 12, 23)
-  val citizen = new Citizen("2", 18, "France", 23)
-  val list = List("hello")
-  val droneMessage = new DroneMessage(drone, citizen, list )
-
-  val producer = new KafkaProducer[String, DroneMessage](properties)
-  producer.send(new ProducerRecord[String, DroneMessage]("drone-input", "1", droneMessage))
 
   stream.print(Printed.toSysOut)
+
+  MessageGenerator.sendAllDronesMessages(50)
 
 }

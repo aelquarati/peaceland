@@ -21,13 +21,21 @@ object MessageGenerator {
   properties.put("key.serializer", classOf[StringSerializer].getName)
   properties.put("value.serializer", classOf[CustomSerializer[DroneMessage]].getName)
 
-  val drone = new Drone("1", 12, 23)
-  val citizen = new Citizen("2", 18, "France", 23)
-  val list = List("hello")
-  val droneMessage = new DroneMessage(drone, citizen, list )
-
   val producer = new KafkaProducer[String, DroneMessage](properties)
-  producer.send(new ProducerRecord[String, DroneMessage]("drone-input", "1", droneMessage))
 
+  def sendMessage(i:Int, drone:Drone): Any = {
+    if(i>=0) {
+      val message = drone.createMessage(Population.citizens(i))
+      producer.send(new ProducerRecord[String, DroneMessage]("drone-input", message))
+      sendMessage(i-1, drone)
+    }
+  }
 
+  def sendAllDronesMessages(i:Int): Any = {
+    if(i>=0) {
+      val drone = Population.drones(i)
+      sendMessage(200, drone)
+      sendAllDronesMessages(i-1)
+    }
+  }
 }

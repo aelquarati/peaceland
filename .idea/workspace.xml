@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d29497a4-0a4b-4357-b47f-189bf9848f64" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Citizen.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Citizen.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Drone.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Drone.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/DroneMessage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/DroneMessage.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/MessageGenerator.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/MessageGenerator.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
