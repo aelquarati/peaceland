@@ -5,11 +5,17 @@ class Drone(val id: Int, val latitude: Float, val longitude: Float) {
   val max = WORDS_LIST.length
 
   def move(x:Float, y:Float): Drone = {
+    if(latitude+x > 90 || latitude+x < -90) {
+      move(-x, y)
+    }
+    else if(longitude+y > 180 || longitude+y < -180 ) {
+      move(x, -y)
+    }
     new Drone(id, latitude+x, longitude+y);
   }
 
   def createMessage(citizen: Citizen) = {
-     DroneMessage(id, citizen.id, getRecognizedWords(max))
+     DroneMessage(id, citizen.id, citizen.peaceScore, getRandomInt(181) - 90, getRandomInt(361 ) -180, getRecognizedWords(max))
   }
 
   def getRecognizedWords(i:Int) : String = {
@@ -25,5 +31,4 @@ class Drone(val id: Int, val latitude: Float, val longitude: Float) {
   }
 
   def getRandomInt(MaxValue: Int): Int = util.Random.nextInt(MaxValue)
-
 }

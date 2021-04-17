@@ -6,8 +6,23 @@ import java.text.SimpleDateFormat
 import java.util.Properties
 object Producer extends App {
 
-  MessageGenerator.sendAllDronesMessages(50)
+  def sendReportsPerMinute(): Unit = {
+    val start = System.currentTimeMillis()
+    MessageGenerator.sendAllDronesMessages(50)
+    MessageGenerator.moveDrones(50)
+    val end = System.currentTimeMillis()
+    val elapsedTime = end - start
+    Thread.sleep(60000 - elapsedTime)
+  }
 
+  def sendReports(i:Int): Unit = {
+    if(i>0) {
+      sendReportsPerMinute()
+      sendReports(1)
+    }
+  }
+
+  sendReports(1)
 
   object MessageGenerator {
 
@@ -26,7 +41,7 @@ object Producer extends App {
       val citizenId = util.Random.nextInt(200)
       val message = drone.createMessage(Population.citizens(citizenId))
       val stringMessage = message.toString
-      producer.send(new ProducerRecord[String, String]("drone-input", formattedDate, formattedDate + " " + stringMessage))
+      producer.send(new ProducerRecord[String, String]("drone-input", formattedDate, stringMessage))
     }
 
     def sendAllDronesMessages(i:Int): Any = {
@@ -34,6 +49,14 @@ object Producer extends App {
         val drone = Population.drones(i)
         sendMessage(drone)
         sendAllDronesMessages(i-1)
+      }
+    }
+
+    def moveDrones(i:Int):Any = {
+      if(i>=0) {
+        val drone = Population.drones(i)
+        drone.move(2,2)
+        moveDrones(i-1)
       }
     }
   }
