@@ -1,6 +1,7 @@
+
 class Drone(val id: Int, val latitude: Float, val longitude: Float) {
 
-  val WORDS_LIST = List("rebellion", "mad", "go on strike", "government", "politic", "insubordination", "insurgency", "revolution", "insurrection")
+  val WORDS_LIST = List("riot", "rebellion", "mad", "government", "politic", "insubordination", "insurgency", "revolution", "insurrection")
   val max = WORDS_LIST.length
 
   def move(x:Float, y:Float): Drone = {
@@ -8,7 +9,7 @@ class Drone(val id: Int, val latitude: Float, val longitude: Float) {
   }
 
   def createMessage(citizen: Citizen) = {
-     new DroneMessage(id, citizen.id, getRecognizedWords(max))
+     DroneMessage(id, citizen.id, getRecognizedWords(max))
   }
 
   def getRecognizedWords(i:Int) : String = {

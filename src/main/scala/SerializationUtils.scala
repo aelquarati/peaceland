@@ -1,10 +1,9 @@
-import kafka.utils.Json
-import org.apache.kafka.common.serialization.{Deserializer, Serde, Serializer}
+import org.apache.kafka.common.serialization.{Deserializer, Serializer}
 
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream, ObjectInputStream, ObjectOutputStream}
 
 
-object Utils {
+object SerializationUtils {
 
   class CustomSerializer[T] extends Serializer[T] {
     override def serialize(topic: String, data: T): Array[Byte] = {

@@ -1,4 +1,4 @@
-import Utils.{CustomDeserializer, CustomSerializer}
+import SerializationUtils.{CustomDeserializer, CustomSerializer}
 import org.apache.kafka.common.serialization.{Serdes, StringSerializer}
 import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
 import org.apache.kafka.streams.kstream.Printed
@@ -24,17 +24,35 @@ object Stream extends App {
   properties.put("value.serializer", classOf[CustomSerializer[DroneMessage]].getName)
 
   val builder = new StreamsBuilder
+
+  //node that consume records from kafka and store into a kstream
   val stream  = builder.stream[String, DroneMessage]("drone-input")(Consumed.`with`(stringSerde, messageSerde))
 
-  stream.to("alerts")(Produced.`with`(stringSerde, messageSerde))
+  //filter messages and send them back to kafka in alerts topic
+  stream.filter((key, message) => shouldSendAlert(message.words.split(" ").length-1,message.words))
+        .to("alerts")(Produced.`with`(stringSerde, messageSerde))
 
-  val streams = new KafkaStreams(builder.build, properties)
-
-  streams.start
   stream.print(Printed.toSysOut)
 
+  //create a kafka streams client upon builder and properties
+  val streams = new KafkaStreams(builder.build, properties)
+  streams.start
+
+  //shut the stream properly when asked to, giving 10 seconds for threads to join in
   sys.ShutdownHookThread {
     streams.close(10, TimeUnit.SECONDS)
+  }
+
+  val ALERT_WORDS = List("riot", "rebellion")
+
+  def shouldSendAlert(i : Int, words: String): Boolean = {
+    val word = words.split(" ")(i)
+    if(i>0) {
+      ALERT_WORDS.contains(word) || shouldSendAlert(i-1, words)
+    }
+    else {
+      true
+    }
   }
 
 }
