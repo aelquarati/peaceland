@@ -29,7 +29,7 @@ object Stream extends App {
   stream.filter((key, message) => shouldSendAlert(message.split(" ").length-1, message))
        .to("alerts")
 
-  stream.print(Printed.toSysOut)
+  //stream.print(Printed.toSysOut)
 
   //create a kafka streams client upon builder and properties
   val streams = new KafkaStreams(builder.build, properties)
