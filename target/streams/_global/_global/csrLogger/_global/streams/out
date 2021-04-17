@@ -1,1 +1,15 @@
-[debug] downloaded https://repo1.maven.org/maven2/net/liftweb/lift-json_2.12/3.3.0/lift-json_2.12-3.3.0-javadoc.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs-client/3.3.0/hadoop-hdfs-client-3.3.0.pom
+[debug] downloaded https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.10.3/jackson-annotations-2.10.3.pom
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.pom
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okhttp/parent/2.7.5/parent-2.7.5.pom
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okio/okio/1.6.0/okio-1.6.0.pom
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okio/okio-parent/1.6.0/okio-parent-1.6.0.pom
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs-client/3.3.0/hadoop-hdfs-client-3.3.0.jar
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okio/okio/1.6.0/okio-1.6.0-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okio/okio/1.6.0/okio-1.6.0-javadoc.jar
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5-javadoc.jar
+[debug] downloaded https://repo1.maven.org/maven2/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs-client/3.3.0/hadoop-hdfs-client-3.3.0-sources.jar
+[debug] downloaded https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-hdfs-client/3.3.0/hadoop-hdfs-client-3.3.0-javadoc.jar
