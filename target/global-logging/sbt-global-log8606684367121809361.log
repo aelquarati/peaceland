@@ -1,0 +1,84 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(evicted, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: evicted[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[33mwarn[0m] [0m[0mFound version conflict(s) in library dependencies; some are suspected to be binary incompatible:[0m
+[0m[[0m[33mwarn[0m] [0m[0m	* com.nimbusds:nimbus-jose-jwt:7.9 is selected over {3.10, 3.10}[0m
+[0m[[0m[33mwarn[0m] [0m[0m	    +- org.apache.hadoop:hadoop-auth:3.3.0                (depends on 7.9)[0m
+[0m[[0m[33mwarn[0m] [0m[0m	    +- org.apache.kerby:token-provider:1.0.1              (depends on 3.10)[0m
+[0m[[0m[33mwarn[0m] [0m[0m	* net.minidev:json-smart:2.3 is selected over [1.3.1,2.3][0m
+[0m[[0m[33mwarn[0m] [0m[0m	    +- org.apache.hadoop:hadoop-auth:3.3.0                (depends on 2.3)[0m
+[0m[[0m[33mwarn[0m] [0m[0m	    +- com.nimbusds:nimbus-jose-jwt:7.9                   (depends on [1.3.1,2.3])[0m
+[0m[[0m[0minfo[0m] [0m[0mHere are other dependency conflicts that were resolved:[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.apache.commons:commons-compress:1.19 is selected over 1.4.1[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 1.19)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.avro:avro:1.7.7                         (depends on 1.4.1)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* com.fasterxml.jackson.core:jackson-annotations:2.10.5 is selected over 2.10.3[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.module:jackson-module-scala_2.13:2.10.5 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.core:jackson-databind:2.10.5.1 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.10.5 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-hdfs-client:3.3.0         (depends on 2.10.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* commons-codec:commons-codec:1.11 is selected over 1.10[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-auth:3.3.0                (depends on 1.11)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-hdfs:3.3.0                (depends on 1.11)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 1.11)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.httpcomponents:httpclient:4.5.6         (depends on 1.10)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.xerial.snappy:snappy-java:1.1.7.7 is selected over 1.0.5[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka-clients:2.7.0               (depends on 1.1.7.7)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.avro:avro:1.7.7                         (depends on 1.0.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* com.fasterxml.jackson.core:jackson-databind:2.10.5.1 is selected over {2.10.5, 2.10.5, 2.10.5, 2.10.5, 2.10.3, 2.10.3, 2.10.3}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:connect-json:2.7.0                (depends on 2.10.5.1)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka-raft:2.7.0                  (depends on 2.10.5.1)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka_2.13:2.7.0                  (depends on 2.10.5.1)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-hdfs-client:3.3.0         (depends on 2.10.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-hdfs:3.3.0                (depends on 2.10.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 2.10.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.module:jackson-module-scala_2.13:2.10.5 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.module:jackson-module-paranamer:2.10.5 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.10.5 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.10.5 (depends on 2.10.5)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* commons-logging:commons-logging:1.2 is selected over {1.1.3, 1.1.3, 1.1.3, 1.1.3}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.httpcomponents:httpclient:4.5.6         (depends on 1.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- commons-beanutils:commons-beanutils:1.9.4          (depends on 1.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.commons:commons-configuration2:2.1.1    (depends on 1.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-hdfs:3.3.0                (depends on 1.1.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 1.1.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* com.thoughtworks.paranamer:paranamer:2.8 is selected over {2.3, 2.3}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.fasterxml.jackson.module:jackson-module-paranamer:2.10.5 (depends on 2.8)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.avro:avro:1.7.7                         (depends on 2.3)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* commons-cli:commons-cli:1.4 is selected over {1.2, 1.2, 1.2, 1.2}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka_2.13:2.7.0                  (depends on 1.4)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-hdfs:3.3.0                (depends on 1.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 1.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.codehaus.jackson:jackson-mapper-asl:1.9.13 is selected over {1.9.2, 1.9.2, 1.9.2}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.avro:avro:1.7.7                         (depends on 1.9.13)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.codehaus.jackson:jackson-xc:1.9.2              (depends on 1.9.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.codehaus.jackson:jackson-jaxrs:1.9.2           (depends on 1.9.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.sun.jersey:jersey-json:1.19                    (depends on 1.9.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.apache.zookeeper:zookeeper:3.5.8 is selected over {3.5.6, 3.5.6, 3.5.6, 3.5.6}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka_2.13:2.7.0                  (depends on 3.5.8)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 3.5.6)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-auth:3.3.0                (depends on 3.5.6)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.codehaus.jackson:jackson-core-asl:1.9.13 is selected over {1.9.2, 1.9.2, 1.9.2, 1.9.2, 1.9.2, 1.9.2}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.avro:avro:1.7.7                         (depends on 1.9.13)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.codehaus.jackson:jackson-mapper-asl:1.9.13     (depends on 1.9.13)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.codehaus.jackson:jackson-xc:1.9.2              (depends on 1.9.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.codehaus.jackson:jackson-jaxrs:1.9.2           (depends on 1.9.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.sun.jersey:jersey-json:1.19                    (depends on 1.9.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	* org.slf4j:slf4j-api:1.7.30 is selected over {1.7.26, 1.7.2, 1.6.4, 1.7.25, 1.7.25, 1.7.25, 1.7.25, 1.7.25, 1.7.25}[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka-streams:2.7.0               (depends on 1.7.30)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka-raft:2.7.0                  (depends on 1.7.30)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka_2.13:2.7.0                  (depends on 1.7.30)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:kafka-clients:2.7.0               (depends on 1.7.30)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:connect-api:2.7.0                 (depends on 1.7.30)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kafka:connect-json:2.7.0                (depends on 1.7.30)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.slf4j:slf4j-log4j12:1.7.25                     (depends on 1.7.25)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.zookeeper:zookeeper:3.5.8               (depends on 1.7.25)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kerby:kerby-pkix:1.0.1                  (depends on 1.7.25)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.kerby:kerby-config:1.0.1                (depends on 1.7.25)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-common:3.3.0              (depends on 1.7.25)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.hadoop:hadoop-auth:3.3.0                (depends on 1.7.25)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- org.apache.avro:avro:1.7.7                         (depends on 1.6.4)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.yammer.metrics:metrics-core:2.2.0              (depends on 1.7.2)[0m
+[0m[[0m[0minfo[0m] [0m[0m	    +- com.typesafe.scala-logging:scala-logging_2.13:3.9.2 (depends on 1.7.26)[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 8 s, completed Apr 18, 2021 2:37:44 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

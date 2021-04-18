@@ -1,0 +1,89 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.4.7 (Oracle Corporation Java 1.8.0_281)
+[debug]       Load.loadUnit: plugins took 216.38687ms
+[debug]       Load.loadUnit: defsScala took 1.013645ms
+[debug] [Loading] Scanning directory /home/marwane/.sbt/1.0/plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/marwane/.sbt/1.0/plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 63.684162 ms
+[debug]           Load.resolveProject(global-plugins) took 975.43137ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: /home/marwane/.sbt/1.0/plugins, plugins: List(<none>))) took 1095.407538ms
+[debug] [Loading] Done in /home/marwane/.sbt/1.0/plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 1176.038801ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.329956ms
+[debug]     Load.loadUnit(file:/home/marwane/.sbt/1.0/plugins/, ...) took 1419.965019ms
+[debug]   Load.apply: load took 2415.218897ms
+[debug]   Load.apply: resolveProjects took 42.760462ms
+[debug]   Load.apply: finalTransforms took 260.311981ms
+[debug]   Load.apply: config.delegates took 25.92828ms
+[debug]   Load.apply: Def.make(settings)... took 2058.705324ms
+[debug]   Load.apply: structureIndex took 293.969319ms
+[debug]   Load.apply: mkStreams took 1.714658ms
+[info] loading global plugins from /home/marwane/.sbt/1.0/plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 12289.479855ms
+[debug]           Load.loadUnit: plugins took 67.582824ms
+[debug]           Load.loadUnit: defsScala took 0.017229ms
+[debug] [Loading] Scanning directory /home/marwane/IdeaProjects/peaceland_scala/project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/marwane/IdeaProjects/peaceland_scala/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 8.802316 ms
+[debug]               Load.resolveProject(peaceland_scala-build) took 16.705402ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id peaceland_scala-build, base: /home/marwane/IdeaProjects/peaceland_scala/project, plugins: List(<none>))) took 31.869223ms
+[debug] [Loading] Done in /home/marwane/IdeaProjects/peaceland_scala/project, returning: (peaceland_scala-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 60.02581ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.019218ms
+[debug]         Load.loadUnit(file:/home/marwane/IdeaProjects/peaceland_scala/project/, ...) took 142.759499ms
+[debug]       Load.apply: load took 144.523633ms
+[debug]       Load.apply: resolveProjects took 0.122123ms
+[debug]       Load.apply: finalTransforms took 9.405895ms
+[debug]       Load.apply: config.delegates took 0.827187ms
+[debug]       Load.apply: Def.make(settings)... took 343.699348ms
+[debug]       Load.apply: structureIndex took 56.050865ms
+[debug]       Load.apply: mkStreams took 0.002784ms
+[info] loading project definition from /home/marwane/IdeaProjects/peaceland_scala/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 1217.185308ms
+[debug]     Load.loadUnit: defsScala took 0.004466ms
+[debug] [Loading] Scanning directory /home/marwane/IdeaProjects/peaceland_scala
+[debug]       Load.loadUnit: mkEval took 152.15558ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/marwane/IdeaProjects/peaceland_scala, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.491484 ms
+[info] loading settings for project peaceland_scala from build.sbt ...
+[debug]         Load.resolveProject(peaceland_scala) took 2.961445ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id peaceland_scala, base: /home/marwane/IdeaProjects/peaceland_scala, plugins: List(<none>))) took 5.108622ms
+[debug] [Loading] Done in /home/marwane/IdeaProjects/peaceland_scala, returning: (peaceland_scala)
+[debug]     Load.loadUnit: loadedProjectsRaw took 10011.248174ms
+[debug]     Load.loadUnit: cleanEvalClasses took 29.004226ms
+[debug]   Load.loadUnit(file:/home/marwane/IdeaProjects/peaceland_scala/, ...) took 11258.253785ms
+[debug] Load.apply: load took 11280.964512ms
+[debug] Load.apply: resolveProjects took 0.121965ms
+[debug] Load.apply: finalTransforms took 11.677552ms
+[debug] Load.apply: config.delegates took 0.400872ms
+[debug] Load.apply: Def.make(settings)... took 364.503625ms
+[debug] Load.apply: structureIndex took 50.88393ms
+[debug] Load.apply: mkStreams took 0.004074ms
+[info] set current project to peaceland_scala (in build file:/home/marwane/IdeaProjects/peaceland_scala/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(shell, None, None)
+[info] sbt server started at local:///home/marwane/.sbt/1.0/server/94d9ccf8d35002c39285/sock
+[info] started sbt server

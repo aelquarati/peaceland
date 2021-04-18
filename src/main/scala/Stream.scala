@@ -1,6 +1,5 @@
 import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.fs.permission.FsAction
-import org.apache.hadoop.fs.{FileSystem, LocalFileSystem, Path}
+import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.kafka.common.serialization.StringSerializer
 import org.apache.kafka.streams.kstream.Printed
 import org.apache.kafka.streams.{KafkaStreams, StreamsConfig}
@@ -8,11 +7,10 @@ import org.apache.kafka.streams.scala.StreamsBuilder
 
 import java.util.Properties
 import java.util.concurrent.TimeUnit
-import java.io.{FileWriter, PrintWriter}
 
 object Stream extends App {
 
-  import org.apache.kafka.streams.scala.serialization.Serdes._
+  import org.apache.kafka.streams.scala.Serdes._
   import org.apache.kafka.streams.scala.ImplicitConversions._
 
   val conf = new Configuration
@@ -42,6 +40,7 @@ object Stream extends App {
 
   //node that consume records from kafka and store into a kstream
   val stream  = builder.stream[String, String]("drone-input")
+
 
   stream.foreach((key, message) => write(key+"; " +message))
 
