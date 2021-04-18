@@ -1,6 +1,6 @@
 object Population {
 
-  val CITIES_LIST = List("INCREDIBLY-PEACEFUL", "AMAZINGLY-PEACEFUL", "IMMENSELY-PEACEFUL", "INSANELY-PEACEFUL", "EMINENTLY-PEACEFUL")
+  val CITIES_LIST = List("INCREDIBLY-PEACEFUL", "AMAZINGLY-PEACEFUL", "IMMENSELY-PEACEFUL", "EMINENTLY-PEACEFUL")
   val citizens = generateCitizens(200)
   val drones = generateDrones(50)
 
@@ -30,7 +30,7 @@ object Population {
   def addCitizen(i:Int) : Citizen = {
     val age = util.Random.nextInt(80)
     val score = util.Random.nextInt(100)
-    val indexCity = util.Random.nextInt(5)
+    val indexCity = util.Random.nextInt(4)
 
     Citizen(i, age, CITIES_LIST(indexCity), score)
   }

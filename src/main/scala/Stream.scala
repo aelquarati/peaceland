@@ -1,3 +1,4 @@
+import ReportAnalyzer.SUSPICIOUS_WORDS
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.kafka.common.serialization.StringSerializer
@@ -49,7 +50,7 @@ object Stream extends App {
   stream.foreach((key, message) => write(key+"; " +message))
 
   //filter messages and send them back to kafka in alerts topic
-  stream.filter((key, message) => shouldSendAlert(message.split(" ").length-1, message)).map((key, message) => (key, key + "; " +message))
+  stream.filter((key, message) => shouldSendAlert(message)).map((key, message) => (key, key + "; " +message))
        .to("alerts")
 
   stream.print(Printed.toSysOut())
@@ -65,14 +66,17 @@ object Stream extends App {
 
   val ALERT_WORDS = List("riot", "rebellion")
 
-  def shouldSendAlert(i : Int, words: String): Boolean = {
-    val word = words.split(" ")(i)
+  def shouldSendAlert(words: String): Boolean = {
+    /*val word = words.split(" ")(i)
     if(i>0) {
       ALERT_WORDS.contains(word) || shouldSendAlert(i-1, words)
     }
     else {
       true
-    }
+    }*/
+    val list = words.split(" ")
+    !list.filter(word => ALERT_WORDS.contains(word)).isEmpty
   }
+
 
 }
