@@ -19,16 +19,16 @@ object Stream extends App {
 
   conf.set("fs.defaultFS", "hdfs://localhost:9000")
   val fs = FileSystem.get(conf)
-  val path = new Path("/tmp/test.txt")
+  val path = new Path("/tmp/testcsv.csv")
   val output = fs.create(path)
+  output.writeChars("Date;Hour;DroneId;CitizenId;PeaceScore;Latitude;Longitude;Words\n")
 
 
   def write(s:String) = {
-    try {
-      output.writeBytes(s + "\n")
-      println("wrote message : " + s)
+      val message = s.replaceAll("\\s*[A-z]+[:]", "")
+      output.writeBytes(message + "\n")
+      println("wrote message : " + message)
       output.hflush()
-    }
   }
 
   val properties = new Properties()
@@ -43,10 +43,10 @@ object Stream extends App {
   //node that consume records from kafka and store into a kstream
   val stream  = builder.stream[String, String]("drone-input")
 
-  stream.foreach((key, message) => write(message))
+  stream.foreach((key, message) => write(key+"; " +message))
 
   //filter messages and send them back to kafka in alerts topic
-  stream.filter((key, message) => shouldSendAlert(message.split(" ").length-1, message))
+  stream.filter((key, message) => shouldSendAlert(message.split(" ").length-1, message)).map((key, message) => (key, key + "; " +message))
        .to("alerts")
 
   stream.print(Printed.toSysOut)

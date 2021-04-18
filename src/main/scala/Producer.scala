@@ -35,13 +35,16 @@ object Producer extends App {
     val producer = new KafkaProducer[String, String](properties)
 
     def sendMessage(drone:Drone): Any = {
-      val formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z")
+      val dateFormatter = new SimpleDateFormat("yyyy-MM-dd")
+      val hourFormatter = new SimpleDateFormat("HH:mm")
       val date = System.currentTimeMillis
-      val formattedDate = formatter.format(date)
+      val formattedDate = dateFormatter.format(date)
+      val formattedHour = hourFormatter.format(date)
       val citizenId = util.Random.nextInt(200)
       val message = drone.createMessage(Population.citizens(citizenId))
       val stringMessage = message.toString
-      producer.send(new ProducerRecord[String, String]("drone-input", formattedDate, stringMessage))
+      val keyDate = " Date:"+formattedDate+"; Hour:"+formattedHour
+      producer.send(new ProducerRecord[String, String]("drone-input", keyDate, stringMessage))
     }
 
     def sendAllDronesMessages(i:Int): Any = {

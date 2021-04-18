@@ -6,13 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d29497a4-0a4b-4357-b47f-189bf9848f64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/Drone.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Drone.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/DroneMessage.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/DroneMessage.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/MessageGenerator.scala" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/Producer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Producer.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Producer$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Producer$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/Stream.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/Stream.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Producer$MessageGenerator$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Producer$MessageGenerator$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Producer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.13/classes/Stream$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.13/classes/Stream$.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
