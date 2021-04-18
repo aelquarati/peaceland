@@ -16,25 +16,29 @@ object Stream extends App {
   val conf = new Configuration
 
   conf.set("fs.defaultFS", "hdfs://localhost:9000")
+  conf.set("dfs.replication", "1")
   val fs = FileSystem.get(conf)
   val path = new Path("/tmp/testcsv.csv")
   val output = fs.create(path)
-  output.writeChars("Date;Hour;DroneId;CitizenId;PeaceScore;Latitude;Longitude;Words\n")
-
+  output.writeBytes("Date;Hour;DroneId;CitizenId;PeaceScore;Latitude;Longitude;Words\n")
+  output.hflush()
+  output.close()
 
   def write(s:String) = {
+      val output = fs.append(path)
       val message = s.replaceAll("\\s*[A-z]+[:]", "")
       output.writeBytes(message + "\n")
       println("wrote message : " + message)
       output.hflush()
+      output.close()
   }
 
   val properties = new Properties()
   //Kafka broker this application is talking to runs on local machine with port 9092
   properties.setProperty(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
   properties.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "messages")
-  properties.put("key.serializer", classOf[StringSerializer].getName)
-  properties.put("value.serializer", classOf[StringSerializer].getName)
+ // properties.put("key.serializer", classOf[StringSerializer].getName)
+  //properties.put("value.serializer", classOf[StringSerializer].getName)
 
   val builder = new StreamsBuilder
 
@@ -48,7 +52,7 @@ object Stream extends App {
   stream.filter((key, message) => shouldSendAlert(message.split(" ").length-1, message)).map((key, message) => (key, key + "; " +message))
        .to("alerts")
 
-  stream.print(Printed.toSysOut)
+  stream.print(Printed.toSysOut())
 
   //create a kafka streams client upon builder and properties
   val streams = new KafkaStreams(builder.build, properties)
