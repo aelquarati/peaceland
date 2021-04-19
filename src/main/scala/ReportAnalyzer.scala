@@ -1,10 +1,17 @@
 import Stream.ALERT_WORDS
+import org.apache.commons.codec.Encoder
+import org.apache.commons.codec.binary.Base64
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.{FileSystem, Path}
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
+import scala.collection.convert.ImplicitConversions.`collection AsScalaIterable`
+
 object ReportAnalyzer extends App {
+
+  Logger.getLogger("org").setLevel(Level.ERROR)
 
   val spark = SparkSession
     .builder()
@@ -28,9 +35,10 @@ object ReportAnalyzer extends App {
   val SUSPICIOUS_WORDS = List("riot", "rebellion")
 
   def avgScoreOfPeopleSayingBadThings(): String = {
-    val people = df.filter(row => saySuspiciousWords(row.get(5).toString))
-    val distinctPeople = people.drop("DroneId", "Latitude", "Longitude", "Words").distinct()
-    val avgScore = distinctPeople.select(avg($"Score")).map(row => row.get(0).toString).first()
+    val people = df.filter(row => saySuspiciousWords(row.getString(7)))
+    val distinctPeople = people.drop("Date", "Hour", "DroneId", "Latitude", "Longitude", "Words").distinct()
+    val listScore = distinctPeople.select($"PeaceScore").map(row => row.getInt(0)).collectAsList()
+    val avgScore = listScore.foldLeft(0)(_+_) / listScore.size()
     "AVERAGE SCORE OF PEOPLE SAYING BAG/SUSPICIOUS WORDS : " + avgScore
   }
 
@@ -39,13 +47,15 @@ object ReportAnalyzer extends App {
     !list.filter(word => SUSPICIOUS_WORDS.contains(word)).isEmpty
   }
 
-  def topTenSuspiciousCitizen(): String = {
-    val sortedList = df.groupBy($"CitizenId").agg($"")
+  def topTenPersonWithBadestScoreSayingBadWords(): String = {
+    val people = df.filter(row => saySuspiciousWords(row.getString(7)))
+    val distinctPeople = people.drop("Date", "Hour","DroneId", "Latitude", "Longitude", "Words").distinct()
+    val array = distinctPeople.sort(asc("PeaceScore")).head(10).map(row => "CITIZEN ID :" +  row.get(0).toString + " ; SCORE :"+ row.get(1).toString+ "\n")
+    array.mkString(" ")
   }
 
-
   def mostSensibleCity():String  = {
-    val suspicious = df.filter(row => saySuspiciousWords(row.get(5).toString))
+    val suspicious = df.filter(row => saySuspiciousWords(row.getString(7)))
 
     //-180 0 et -90 0 incredibly
     //0 180 et 0 90   amazingly
@@ -61,27 +71,28 @@ object ReportAnalyzer extends App {
     val maxWithIndex = list.zipWithIndex.maxBy(_._1)
 
     if (maxWithIndex._2 == 0) {
-      "MOST SENSIBLE CITY: INCREDIBLY-PEACEFUL CITY \n   TOTAL OF " + inIncredibly + " DETECTED"
+      "MOST SENSIBLE CITY: INCREDIBLY-PEACEFUL CITY \n   TOTAL OF " + inIncredibly + " DRONE REPORTS CONTAINING SUSPICIOUS WORDS RECORDED"
     }
     else if (maxWithIndex._2 == 1) {
-      "MOST SENSIBLE CITY: AMAZINGLY-PEACEFUL CITY  \n   TOTAL OF " + inAmazingly + " DETECTED"
+      "MOST SENSIBLE CITY: AMAZINGLY-PEACEFUL CITY  \n   TOTAL OF " + inAmazingly + " DRONE REPORTS CONTAINING SUSPICIOUS WORDS RECORDED"
     }
     else if (maxWithIndex._2 == 2) {
-      "MOST SENSIBLE CITY: IMMENSELY-PEACEFUL CITY  \n   TOTAL OF " + inImmensely + " DETECTED"
+      "MOST SENSIBLE CITY: IMMENSELY-PEACEFUL CITY  \n   TOTAL OF " + inImmensely + " DRONE REPORTS CONTAINING SUSPICIOUS WORDS RECORDED"
     }
     else {
-      "MOST SENSIBLE CITY: EMINENTLY-PEACEFUL CITY  \n   TOTAL OF " + inEminently + " DETECTED"
+      "MOST SENSIBLE CITY: EMINENTLY-PEACEFUL CITY  \n   TOTAL OF " + inEminently + " DRONE REPORTS CONTAINING SUSPICIOUS WORDS RECORDED"
     }
   }
 
+  def personMostRecordedSayingBadWords() = {
+    val people = df.filter(row => saySuspiciousWords(row.getString(7)))
+    val personWithNumber = people.groupBy("CitizenID").agg(count("*").as("count"))
+    val person = personWithNumber.sort(desc("count")).first()
+    "CITIZEN WHOSE BEEN MOST RECORDED SAYING BAD WORDS = CITIZEN ID :" + person.getInt(0) + " ; COUNT: "+person.getLong(1)
+  }
 
-  //import needed to use '$' notation
-
-  import spark.implicits._
-
-
-
-  //df.select("DroneId").show(10)
-
-
+  println(topTenPersonWithBadestScoreSayingBadWords())
+  println(avgScoreOfPeopleSayingBadThings())
+  println(mostSensibleCity())
+ println(personMostRecordedSayingBadWords())
 }
