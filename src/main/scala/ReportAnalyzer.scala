@@ -1,11 +1,7 @@
-import Stream.ALERT_WORDS
-import org.apache.commons.codec.Encoder
-import org.apache.commons.codec.binary.Base64
-import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.fs.{FileSystem, Path}
+
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{SparkSession}
 
 import scala.collection.convert.ImplicitConversions.`collection AsScalaIterable`
 
@@ -23,7 +19,7 @@ object ReportAnalyzer extends App {
     .option("sep", ";")
     .option("inferSchema", "true")
     .option("header", "true")
-    .load("hdfs://localhost:9000/tmp/testcsv.csv")
+    .load("hdfs://localhost:9000/msg/droneInput.csv")
 
   df.show()
   println("count" + df.count())
@@ -94,5 +90,5 @@ object ReportAnalyzer extends App {
   println(topTenPersonWithBadestScoreSayingBadWords())
   println(avgScoreOfPeopleSayingBadThings())
   println(mostSensibleCity())
- println(personMostRecordedSayingBadWords())
+  println(personMostRecordedSayingBadWords())
 }

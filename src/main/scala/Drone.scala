@@ -1,7 +1,7 @@
 
 class Drone(val id: Int, val latitude: Float, val longitude: Float) {
 
-  val WORDS_LIST = List("riot", "rebellion", "mad", "government", "politic", "insubordination", "insurgency", "revolution", "insurrection")
+  val WORDS_LIST = List("happy", "joyful", "glad", "riot", "rebellion", "mad", "government", "politic", "insubordination", "insurgency", "revolution", "insurrection", "tumult", "disturbance", "kill", "rape")
   val max = WORDS_LIST.length
 
   def move(x:Float, y:Float): Drone = {
